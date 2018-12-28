@@ -27,7 +27,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    String TAG = "MainActivity";
+    String KEY_STORE_ALIAS = "MainActivity";
     private TextView txtResult;
     private Button btnEncrypt;
     private Button btbDecrypt;
@@ -73,11 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void decryptText() {
         try {
-            txtResult.setText(decryptor.decryptData(TAG, encryptor.getEncryption(), encryptor.getIv()));
+            txtResult.setText(decryptor.decryptData(KEY_STORE_ALIAS, encryptor.getEncryption(), encryptor.getIv()));
         } catch (UnrecoverableEntryException | NoSuchAlgorithmException |
                 KeyStoreException | NoSuchPaddingException | NoSuchProviderException |
                 IOException | InvalidKeyException e) {
-            Log.e(TAG, "decryptData() called with: " + e.getMessage(), e);
+            Log.e(KEY_STORE_ALIAS, "decryptData() called with: " + e.getMessage(), e);
         } catch (IllegalBlockSizeException | BadPaddingException | InvalidAlgorithmParameterException e) {
             e.printStackTrace();
         }
@@ -87,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
     private void encryptText() {
 
         try {
-            final byte[] encryptedText = encryptor.encryptText(TAG, dataText.getText().toString());
+            final byte[] encryptedText = encryptor.encryptText(KEY_STORE_ALIAS, dataText.getText().toString());
             txtResult.setText(Base64.encodeToString(encryptedText, Base64.DEFAULT));
         } catch (UnrecoverableEntryException | NoSuchAlgorithmException | NoSuchProviderException |
                 KeyStoreException | IOException | NoSuchPaddingException | InvalidKeyException e) {
-            Log.e(TAG, "onClick() called with: " + e.getMessage(), e);
+            Log.e(KEY_STORE_ALIAS, "onClick() called with: " + e.getMessage(), e);
         } catch (InvalidAlgorithmParameterException | SignatureException | IllegalBlockSizeException | BadPaddingException e) {
             e.printStackTrace();
         }
