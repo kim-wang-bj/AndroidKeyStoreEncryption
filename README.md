@@ -2,7 +2,8 @@
 
 **说明**
 
-[Android保存私密信息－强大的keyStore](http://www.jianshu.com/p/dc5a9f906eb8)
+[Android 密钥库系统官方文档](https://developer.android.com/training/articles/keystore)
 
+[Android保存私密信息－强大的keyStore](http://www.jianshu.com/p/dc5a9f906eb8)
 
 ![](http://upload-images.jianshu.io/upload_images/1407686-cc6e71ade261ed35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/500)
